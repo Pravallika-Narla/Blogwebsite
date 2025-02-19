@@ -10,7 +10,7 @@ const BlogCards = ({blogs, currentPage, pageSize, selectedCategory}) => {
     <div className='grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8'>
         {
           filteredBlogs.map((blog) => (
-            <a href={`blogs/${blog.id}`} key={blog.id} className="block p-5 shadow-lg rounded cursor-pointer">
+            <a href={`https://blogverse-psi.vercel.app/blogs/${blog.id}`} key={blog.id} className="block p-5 shadow-lg rounded cursor-pointer">
                 <div>
                     <img src={blog.image} alt="" className='w-full'/>
                 </div>
