@@ -2,10 +2,23 @@ import React from 'react'
 import { FaUser } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
-const BlogCards = ({blogs, currentPage, pageSize, selectedCategory}) => {
-    const filteredBlogs = blogs
-        .filter((blogs) => !selectedCategory || blogs.category === selectedCategory)
-        .slice((currentPage - 1) * pageSize, currentPage * pageSize);
+const BlogCards = ({blogs = [], currentPage, pageSize, selectedCategory = "ALL"}) => {
+    console.log(blogs);
+    console.log(selectedCategory);
+    console.log(currentPage, pageSize);
+
+    let filteredBlogs = []
+    if(selectedCategory == "ALL"){
+    filteredBlogs = blogs.slice((currentPage - 1) * pageSize, currentPage * pageSize);
+    }else{
+
+    filteredBlogs = blogs
+          .filter((blogs) => !selectedCategory || blogs.category === selectedCategory)
+          .slice((currentPage - 1) * pageSize, currentPage * pageSize);
+      console.log(filteredBlogs);
+      
+    }
+    
   return (
     <div className='grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8'>
         {
