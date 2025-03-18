@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
 // react icons
 import { FaBars, FaDribbble, FaMeta, FaTwitter, FaXmark } from "react-icons/fa6";
 import Modal from "./Modal";
-
+import { Outlet } from "react-router-dom";
 const Navbar = () => {
+    const navigate = useNavigate();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     // const [isActive, setIsActive] = useState(false);
 
@@ -21,8 +22,14 @@ const Navbar = () => {
         { path: "/about", link: "About" },
         { path: "/blogs", link: "Blogs" },
         { path: "/contact", link: "Contact" },
-    ]
 
+    ]
+    const handlelogin=()=>{
+        navigate('/login')
+    }
+    const handleRegister=()=>{
+        navigate('/register')
+    }
     // for modal for login button
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -62,6 +69,8 @@ const Navbar = () => {
                     <a href="/" className="hover:text-orange-500"> <FaMeta /></a>
                     <a href="/" className="hover:text-orange-500"><FaDribbble /></a>
                     <a href="/" className="hover:text-orange-500"><FaTwitter /></a>
+                    <button onClick={handlelogin}>Login</button>
+                    <button onClick={handleRegister}>sign In</button>
                     {/* <button onClick={openModal} className="bg-orange-500 px-6 py-2 font-medium rounded hover:bg-white hover:text-orange-500 transition-all ease-in duration-200 ml-4">Log in</button> */}
                 </div>
                 

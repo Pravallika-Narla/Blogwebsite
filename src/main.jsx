@@ -13,12 +13,19 @@ import About from './pages/About.jsx';
 import { Blogs } from './pages/Blogs.jsx';
 import Contact from './pages/Contact.jsx';
 import SingleBlog from './pages/SingleBlog.jsx';
+import Login from './components/Login.jsx';
+import Profile from './components/Profile.jsx';
+import Register from './components/Register.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App/>,
     children: [
+      // {
+      //   path: "/",
+      //   element: <Login/>
+      // },
       {
         path: "/",
         element: <Home/>
@@ -46,6 +53,18 @@ const router = createBrowserRouter([
       }
     ]
   },
+  {
+    path:'/login',
+    element:<Login/>
+  },
+  {
+    path:'/profile',
+    element:<Profile/>
+  },
+  {
+    path:'/register',
+    element:<Register/>
+  }
 ]);
 
 
